@@ -19,7 +19,7 @@ file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c")
 foreach(SOURCE_FILE ${SOURCES})
     get_filename_component(DIR_NAME ${SOURCE_FILE} DIRECTORY)
     get_filename_component(DIR_BARE ${DIR_NAME} NAME)
-    get_filename_component(EXT ${SOURCE_FILE} LAST_EXT) # .cpp lub .c
+    get_filename_component(EXT ${SOURCE_FILE} LAST_EXT)
 
     string(SUBSTRING ${EXT} 1 -1 EXT_CLEAN)
 
