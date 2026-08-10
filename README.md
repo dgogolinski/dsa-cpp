@@ -4,10 +4,10 @@ A structured repository for algorithmic problem-solving, custom data structures,
 
 ## Technical Stack
 
-**Languages:** C++20, C11
-**Build System:** CMake (>= 3.16) with Ninja
-**Compilers:** GCC / Clang
-**Tooling:** VS Code, CodeLLDB
+* **Languages:** C++20, C11
+* **Build System:** CMake (>= 3.16) with Ninja / Make
+* **Compilers:** GCC / Clang
+* **Tooling:** VS Code, CodeLLDB
 
 ## Directory Structure
 
