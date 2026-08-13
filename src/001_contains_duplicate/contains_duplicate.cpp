@@ -1,16 +1,14 @@
+#include "contains_duplicate.hpp"
 #include <unordered_set>
-#include <vector>
 
-class Solution {
-public:
+bool Solution::hasDuplicate(std::vector<int>& nums) {
     std::unordered_set<int> seen;
 
-    bool hasDuplicate(std::vector<int>& nums) {
-        for (auto num : nums) {
-            if (!seen.insert(num).second)
-                return true;
+    for (auto num : nums) {
+        if (!seen.insert(num).second) {
+            return true;
         }
-
-        return false;
     }
-};
+
+    return false;
+}

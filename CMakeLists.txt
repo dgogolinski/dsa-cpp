@@ -13,17 +13,36 @@ endif()
 
 include_directories(include)
 
-# Automatic solution search
+# GoogleTest Setup
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+include(GoogleTest)
+
+# Build all implementations in src/ into a static library
 file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c")
 
-foreach(SOURCE_FILE ${SOURCES})
-    get_filename_component(DIR_NAME ${SOURCE_FILE} DIRECTORY)
-    get_filename_component(DIR_BARE ${DIR_NAME} NAME)
-    get_filename_component(EXT ${SOURCE_FILE} LAST_EXT)
+add_library(dsa_lib STATIC ${SOURCES})
+target_include_directories(dsa_lib PUBLIC include)
 
-    string(SUBSTRING ${EXT} 1 -1 EXT_CLEAN)
+# Search test files and link them to dsa_lib + GoogleTest
+file(GLOB_RECURSE TEST_SOURCES "tests/*.cpp")
 
-    set(TARGET_NAME "${DIR_BARE}_${EXT_CLEAN}")
+foreach(TEST_FILE ${TEST_SOURCES})
+    get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
 
-    add_executable(${TARGET_NAME}${SOURCE_FILE})
+    add_executable(${TEST_NAME} ${TEST_FILE})
+    
+    # Link against GoogleTest main runner and dsa_lib
+    target_link_libraries(${TEST_NAME} PRIVATE gtest_main dsa_lib)
+    
+    target_include_directories(${TEST_NAME} PRIVATE include)
+
+    gtest_discover_tests(${TEST_NAME})
 endforeach()
