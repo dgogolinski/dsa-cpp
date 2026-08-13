@@ -56,6 +56,7 @@ Compile single target:
 ```bash
 cmake --build build --target <solution_name>_ut
 ```
+&nbsp;
 Run test executable:
 ```bash
 ./build/<solution_name>_ut
