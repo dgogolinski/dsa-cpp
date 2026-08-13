@@ -29,7 +29,7 @@ dsa-cpp/
     └── [solution_name]_ut.cpp          # GoogleTest files
 ```
 
-## Building & Running Tests
+## Building & Running tests
 1. **Configure:**
 Generate build files inside the `build/` directory:
 ```bash
@@ -47,7 +47,7 @@ ctest --test-dir build --output-on-failure
 ```
 
 ## Running a single solution test
-**To build and run tests for a specific problem:**
+**To build and run tests for a specific problem:**  
 Compile single target:
 ```bash
 cmake --build build --target <solution_name>_ut
