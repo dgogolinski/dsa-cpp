@@ -30,17 +30,20 @@ dsa-cpp/
 ```
 
 ## Building & Running tests
-1. **Configure:**
+1. **Configure**  
+&nbsp;
 Generate build files inside the `build/` directory:
 ```bash
 cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
 ```
-2. **Compile:**
+2. **Compile**  
+&nbsp;
 Build the `dsa_lib` static library and all test executables:
 ```bash
 cmake --build build
 ```
-3. **Run all tests**
+3. **Run all tests**  
+&nbsp;
 Execute all registered test suites via CTest:
 ```bash
 ctest --test-dir build --output-on-failure
@@ -48,6 +51,7 @@ ctest --test-dir build --output-on-failure
 
 ## Running a single solution test
 **To build and run tests for a specific problem:**  
+&nbsp;
 Compile single target:
 ```bash
 cmake --build build --target <solution_name>_ut
