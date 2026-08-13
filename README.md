@@ -2,7 +2,7 @@
 
 A structured repository for algorithmic problem-solving, custom data structures, and modern C++ / C practice.
 
-## Technical Stack
+## Technical stack
 
 * **Languages:** C++20, C11
 * **Build System:** CMake (>= 3.16), Ninja / Make
@@ -10,7 +10,7 @@ A structured repository for algorithmic problem-solving, custom data structures,
 * **Supported Compilers:** GCC / Clang / MSVC
 * **Tooling:** VS Code, WSL (Ubuntu), LLDB
 
-## Directory Structure
+## Directory structure
 
 ```text
 dsa-cpp/
