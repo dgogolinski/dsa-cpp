@@ -28,3 +28,31 @@ dsa-cpp/
 └── tests/
     └── [solution_name]_ut.cpp          # GoogleTest files
 ```
+
+## Building & Running Tests
+1. **Configure:**
+Generate build files inside the `build/` directory:
+```bash
+cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+```
+2. **Compile:**
+Build the `dsa_lib` static library and all test executables:
+```bash
+cmake --build build
+```
+3. **Run all tests**
+Execute all registered test suites via CTest:
+```bash
+ctest --test-dir build --output-on-failure
+```
+
+## Running a single solution test
+**To build and run tests for a specific problem:**
+Compile single target:
+```bash
+cmake --build build --target <solution_name>_ut
+```
+Run test executable:
+```bash
+./build/<solution_name>_ut
+```
